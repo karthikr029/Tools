@@ -1,3 +1,26 @@
-# Under Construction
+# MongoDB
 
-This folder is currently under construction. Check back soon for updates.
+## Quick Start
+
+```bash
+docker compose up -d
+```
+
+## Connection
+
+- Host: `localhost`
+- Port: `27017`
+- Username: `root`
+- Password: `rootpassword`
+
+## Stop
+
+```bash
+docker compose down
+```
+
+To remove data volume:
+
+```bash
+docker compose down -v
+```
