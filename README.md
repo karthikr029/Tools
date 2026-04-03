@@ -10,6 +10,13 @@ A collection of development tools and services configured via Docker Compose.
 | [Mlflow/](#mlflow) | ML experiment tracking and model registry |
 | [Prometheus & Grafana/](#prometheus--grafana) | Metrics monitoring and visualization |
 | [Redis/](#redis) | In-memory cache/database with GUI |
+| [ElasticSearch/](#elasticsearch) | Under construction |
+| [Langfuse/](#langfuse) | LLM observability and analytics |
+| [Mongo/](#mongo) | Under construction |
+| [Opensearch/](#opensearch) | Under construction |
+| [Postgres/](#postgres) | Under construction |
+| [RabbitMQ/](#rabbitmq) | Under construction |
+| [RustFS/](#rustfs) | Under construction |
 
 ---
 
@@ -73,3 +80,24 @@ In-memory data store with optional web-based management UI.
 **Services:**
 - **Redis** - In-memory database (port 6379) with AOF persistence
 - **RedisInsight** - Browser-based Redis GUI (port 5540)
+
+---
+
+### Langfuse
+
+LLM observability platform for tracing, evaluation, and analytics.
+
+**Files:**
+- `docker-compose.yml` - Langfuse stack configuration
+- `README.md` - Setup and usage instructions
+
+**Services:**
+- **Langfuse** - Web UI (port 3000)
+- **PostgreSQL** - Primary database (port 5432)
+- **ClickHouse** - Analytics database (ports 8123, 9000)
+- **Redis** - Caching and queue (port 6379)
+- **MinIO** - S3-compatible storage (port 9090)
+
+**Access:** http://localhost:3000
+
+
