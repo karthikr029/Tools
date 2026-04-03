@@ -1,0 +1,19 @@
+services:
+  solace:
+    image: solace/solace-pubsub-standard:latest
+    container_name: solace
+    ports:
+      - "8081:8080"
+      - "55556:55555"
+      - "1944:1943"
+    environment:
+      - username_admin_globalaccesslevel=admin
+      - username_admin_password=admin
+      - SOLACE_VPN_NAME=default
+    volumes:
+      - solace-data:/share/lib
+    mem_limit: 2g
+    shm_size: 1g
+
+volumes:
+  solace-data:
