@@ -1,0 +1,38 @@
+services:
+  redis:
+    image: redis:8.6.2
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - redis-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight_data:/data
+    environment:
+      - RI_REDIS_HOST=redis
+      - RI_REDIS_PORT=6379
+      - RI_REDIS_ALIAS=Local Redis
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - redis-network
+
+networks:
+  redis-network:
+
+volumes:
+  redis_data:
+  redisinsight_data:
