@@ -21,7 +21,8 @@ A collection of development tools and services configured via Docker Compose.
 | [Eureka/](#eureka) | Under construction |
 | [Infisical/](#infisical) | Under construction |
 | [Spark/](#spark) | Under construction |
-| [Vault/](#vault) | Under construction |
+| [Solace/](#solace) | Event broker and messaging platform |
+| [Vault/](#vault) | Secret management and encryption |
 | [Zookeeper/](#zookeeper) | Under construction |
 
 ---
@@ -216,5 +217,40 @@ LLM observability platform for tracing, evaluation, and analytics.
 - **MinIO** - S3-compatible storage (port 9090)
 
 **Access:** http://localhost:3000
+
+---
+
+### Solace
+
+Event broker and messaging platform for pub/sub, queueing, and streaming.
+
+**Files:**
+- `docker-compose.yml` - Solace PubSub+ configuration
+- `README.md` - Setup and usage instructions
+
+**Services:**
+- **Solace** - Event broker (ports 8081, 55556, 1944)
+
+**Access:**
+- **UI**: http://localhost:8081
+- **Messaging**: 55556 (AMQP), 1944 (SMF)
+
+**Credentials:** admin / admin
+
+---
+
+### Vault
+
+Secret management and encryption as a service.
+
+**Files:**
+- `docker-compose.yml` - Vault configuration
+
+**Services:**
+- **Vault** - Secret management server (port 8200)
+
+**Access:** http://localhost:8200
+
+**Token:** root
 
 
