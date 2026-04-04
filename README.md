@@ -16,14 +16,9 @@ A collection of development tools and services configured via Docker Compose.
 | [RabbitMQ/](#rabbitmq) | Message broker |
 | [Redis/](#redis) | In-memory cache/database with GUI |
 | [RustFS/](#rustfs) | S3-compatible object storage |
+| [ElasticSearch/](#elasticsearch) | Distributed search and analytics engine |
 | [Langfuse/](#langfuse) | LLM observability and analytics |
-| [Consul/](#consul) | Under construction |
-| [Eureka/](#eureka) | Under construction |
-| [Infisical/](#infisical) | Under construction |
-| [Spark/](#spark) | Under construction |
-| [Solace/](#solace) | Event broker and messaging platform |
-| [Vault/](#vault) | Secret management and encryption |
-| [Zookeeper/](#zookeeper) | Under construction |
+| [Authentik/](#authentik) | Identity provider and SSO |
 
 ---
 
@@ -201,6 +196,29 @@ S3-compatible object storage server for local development.
 
 ---
 
+### ElasticSearch
+
+Distributed search and analytics engine with Kibana visualization.
+
+**Files:**
+- `docker-compose.yml` - ElasticSearch stack configuration
+- `README.md` - Setup and usage instructions
+
+**Services:**
+- **ElasticSearch** - Search engine (ports 9200, 9300)
+- **Kibana** - Visualization dashboard (port 5601)
+- **Logstash** - Log processing pipeline (ports 5044, 9600)
+
+**Access:**
+- ElasticSearch: http://localhost:9200
+- Kibana: http://localhost:5601
+
+**Credentials:**
+- Username: `elastic`
+- Password: `elastic123`
+
+---
+
 ### Langfuse
 
 LLM observability platform for tracing, evaluation, and analytics.
@@ -217,6 +235,33 @@ LLM observability platform for tracing, evaluation, and analytics.
 - **MinIO** - S3-compatible storage (port 9090)
 
 **Access:** http://localhost:3000
+
+---
+
+### Authentik
+
+Open-source Identity Provider and Single Sign-On (SSO) solution.
+
+**Files:**
+- `docker-compose.yml` - Authentik stack configuration
+- `.env` - Environment variables
+- `certs/`, `media/`, `custom-templates/` - Data directories
+
+**Services:**
+- **PostgreSQL** - Database (port 5432)
+- **Redis** - Cache (port 6379)
+- **Server** - Authentik server (ports 9000, 9443)
+- **Worker** - Background worker
+
+**Access:**
+- HTTP: http://localhost:9000
+- HTTPS: https://localhost:9443
+
+**Environment:** Configure via `.env` file:
+- `PG_PASS` - PostgreSQL password
+- `PG_USER` - PostgreSQL user (default: authentik)
+- `PG_DB` - PostgreSQL database (default: authentik)
+- `AUTHENTIK_SECRET_KEY` - Secret key for encryption
 
 ---
 
